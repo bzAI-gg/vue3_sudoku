@@ -1,0 +1,70 @@
+.my_unselectable {
+   -webkit-user-select: none; /* Safari */
+   -moz-user-select: none;    /* Firefox */
+   -ms-user-select: none;     /* IE10+/Edge */
+   user-select: none;         /* Standard */   
+}
+
+
+.sudoku-home {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menu-title {
+	font-size: 4rem;
+	color: #2c3e50;
+	margin-top: 5px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+	letter-spacing: 5px;
+}
+
+.menu-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	width: 300px;
+}
+
+
+.menu-item {
+	position: relative;
+	padding: 1rem 2rem;
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	font-size: 1.2rem;
+	color: #34495e;
+	text-decoration: none;
+	text-align: center;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.menu-item::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.2), transparent);
+	transition: 0.5s;
+}
+
+
+.menu-item:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+	color: #2c3e50;
+}
+
+.menu-item:hover::before {
+	left: 100%;
+}
