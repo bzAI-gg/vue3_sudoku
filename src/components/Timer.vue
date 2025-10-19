@@ -60,8 +60,8 @@
 		font-family: 'Courier New', monospace;
 		font-size: 1.5rem;
 		background: #f5f5f5;
-		padding: 8px 16px;
-		border-radius: 8px;
+		padding: 8px 10px;
+		border-radius: 5px;
 		display: inline-flex;
 		align-items: center;
 		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

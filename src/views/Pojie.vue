@@ -52,6 +52,7 @@
               (index == currentGroup ? 'group-item-selected' : '')
             "
             @click="selectGroup(index)"
+            :key="'step' + index"
           >
             {{ index + 1 }}
           </div>
@@ -161,8 +162,33 @@ const showInput = ref(false);
 const showStep = ref(false);
 
 const copyRes = () => {
-  navigator.clipboard.writeText(solutionString.value);
-  alert("结果已复制");
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard
+      .writeText(solutionString.value)
+      .then(() => {
+        alert("复制成功\n" + solutionString.value);
+      })
+      .catch((err) => {
+        alert("复制失败");
+      });
+  } else {
+    // 备用方法
+    const textArea = document.createElement("textarea");
+    textArea.value = solutionString.value;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999999px";
+    textArea.style.top = "-999999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      document.execCommand("copy");
+      alert("复制成功\n" + solutionString.value);
+    } catch (err) {
+      alert("复制失败");
+    }
+    document.body.removeChild(textArea);
+  }
 };
 
 const handleCellClick = ({ row, col }) => {
