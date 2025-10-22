@@ -522,7 +522,11 @@ const sudoku_tool = {
 			// 4. 如果既没有显式也没有隐式唯一候选，开始猜测
 			let cell = findmin(nomarr)
 			if (cell) {
-				makeGuess(cell, 0, step)
+				let m = makeGuess(cell, 0, step);
+				if (!m) {
+					// 无法猜测，数独无解
+					return null;
+				}
 			}
 		}
 

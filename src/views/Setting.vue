@@ -1,6 +1,6 @@
 <template>
 	<div>
-		设置
+		设置开发中
 	</div>
 </template>
 
